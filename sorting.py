@@ -58,6 +58,22 @@ def bubble_sort(zoznam):
     return zoznam
 
 
+def insertion_sort(zoznam):
+    n = len(zoznam)
+
+    if n <= 1:
+        return
+
+    for i in range(1, n):
+        key = zoznam[i]
+        j = i-1
+        while j >= 0 and key < zoznam[j]:
+            zoznam[j+1] = zoznam[j]
+            j -= 1
+            zoznam[j+1] = key
+
+    return zoznam
+
 
 
 def main():
@@ -69,7 +85,8 @@ def main():
     print(sel_sort)
     bub_sort = bubble_sort(data1)
     print(bub_sort)
-    #print(data)
+    ins_sort = insertion_sort(data1)
+    print(ins_sort)
 
 
 if __name__ == '__main__':
