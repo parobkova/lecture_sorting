@@ -30,13 +30,21 @@ def read_data(file_name):
     return data
 
 
-def selection_sort(zoznam):
+def selection_sort(zoznam, direct = 'desc'):
     for i in range(len(zoznam)):
         min_idx = i
+        max_idx = i
         for j in range(i+1, len(zoznam)):
-            if zoznam[j] < zoznam[min_idx]:
-                min_idx = j
-        (zoznam[i], zoznam[min_idx]) = (zoznam[min_idx], zoznam[i])
+            if direct == 'asc':
+                if zoznam[j] < zoznam[min_idx]:
+                    min_idx = j
+            else:
+                if zoznam[j] > zoznam[max_idx]:
+                    max_idx = j
+        if direct == 'asc':
+            (zoznam[i], zoznam[min_idx]) = (zoznam[min_idx], zoznam[i])
+        else:
+            (zoznam[i], zoznam[max_idx]) = (zoznam[max_idx], zoznam[i])
 
     return zoznam
 
