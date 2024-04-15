@@ -49,6 +49,16 @@ def selection_sort(zoznam, direct = 'desc'):
     return zoznam
 
 
+def bubble_sort(zoznam):
+    for i in range(len(zoznam) - 1):
+        for j in range(len(zoznam) - i - 1):
+            if zoznam[j] > zoznam[j + 1]:
+                (zoznam[j], zoznam[j+1]) = (zoznam[j+1], zoznam[j])
+
+    return zoznam
+
+
+
 
 def main():
     #pass
@@ -57,6 +67,8 @@ def main():
     data1 = data['series_1']
     sel_sort = selection_sort(data1)
     print(sel_sort)
+    bub_sort = bubble_sort(data1)
+    print(bub_sort)
     #print(data)
 
 
